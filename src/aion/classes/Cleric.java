@@ -18,7 +18,7 @@ public class Cleric extends AbstractPriest implements Player {
     private int hpMax;
     private List<String> skillListCleric = new ArrayList<>();
 
-   private  int indexFromList;
+    private int indexFromList;
 
     public void setPermaSkill(String permaSkill) {
         this.permaSkill = permaSkill;
@@ -40,7 +40,7 @@ public class Cleric extends AbstractPriest implements Player {
     public String getSkill() {
         Random randomForSkill = new Random();
         indexFromList = randomForSkill.nextInt(skillListCleric.size() - 1);
-      permaSkill =  skillListCleric.get(indexFromList);
+        permaSkill = skillListCleric.get(indexFromList);
         return skillListCleric.get(indexFromList);
     }
 
@@ -91,27 +91,23 @@ public class Cleric extends AbstractPriest implements Player {
 
         int heal = 1000;
         if (permaSkill.equals("Healing Light")) {
-            if(hp <= hpMax - heal){
+            if (hp <= hpMax - heal) {
 
                 hp = hp + heal;
-                System.out.println(name +" I received " + heal + " hp" + " by using " + " " + getPermaSkill());
+                System.out.println(name + " I received " + heal + " hp" + " by using " + " " + getPermaSkill());
 
-            }
-            else {
+            } else {
 
-                if( player.getDamage() < heal){
-                    hp = hp+ player.getDamage();
-                    System.out.println(name +" I received " + player.getDamage() + " hp" + " by using " + " " + getPermaSkill());
+                if (player.getDamage() < heal) {
+                    hp = hp + player.getDamage();
+                    System.out.println(name + " I received " + player.getDamage() + " hp" + " by using " + " " + getPermaSkill());
                 }
 
 
-
             }
 
 
-
-        }
-        else {
+        } else {
             System.out.println("I'm attacking with a mace");
             player.setHp(player.getHp() - damage);
         }
