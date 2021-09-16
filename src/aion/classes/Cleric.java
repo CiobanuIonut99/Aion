@@ -86,7 +86,8 @@ public class Cleric extends AbstractPriest implements Player {
     }
 
     @Override
-    public void attack(Player player) {
+    public void attack(Player player
+    ) {
 
         int heal = 1000;
         if (permaSkill.equals("Healing Light")) {
