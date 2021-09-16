@@ -51,7 +51,7 @@ public class Cleric extends AbstractPriest implements Player {
 
     @Override
     public void setDamage(int damage) {
-        this.damage = random.nextInt(400 - 200) + 200;
+        this.damage = random.nextInt(400 - 150) + 150;
     }
 
     @Override
