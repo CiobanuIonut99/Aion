@@ -27,9 +27,9 @@ public class MainAion {
 //        players.add(templar1);
 //        players.add(gladiator1);
         players.add(chanter1);
-        players.add(cleric1);
+//        players.add(cleric1);
 //        players.add(sorcerer1);
-//        players.add(spiritMaster1);
+        players.add(spiritMaster1);
 
         Random random = new Random();
         int a = random.nextInt(players.size());
@@ -89,11 +89,18 @@ public class MainAion {
 
             System.out.println("The duel beetwen " + x.getName() + " and " + y.getName() + " is starting");
             System.out.println();
+            boolean isFirstRound = true;
+
             while (x.getHp() > 0 && y.getHp() > 0) {
                 x.getSkill();
                 y.getSkill();
 
                 if (x.getHp() > 0) {
+                    while(isFirstRound && x.getPermaSkill().equals("Healing Light")){
+                        x.getPermaSkill();
+                    }
+                    isFirstRound = false;
+
                     x.attack(y);
                     if (!x.getPermaSkill().equals("Healing Light")) {
                         System.out.println(x.getName() + " I inflicted " + x.getDamage() + " damage by using " + x.getPermaSkill());
@@ -106,6 +113,7 @@ public class MainAion {
 
 
                 if (y.getHp() > 0) {
+
                     y.attack(x);
                     if (!y.getPermaSkill().equals("Healing Light")) {
                         System.out.println(y.getName() + " I inflicted " + y.getDamage() + " damage by using " + y.getPermaSkill());
